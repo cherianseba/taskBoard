@@ -1,0 +1,24 @@
+<div mat-dialog-title>
+    <span *ngIf="data">Task {{data.taskId}}</span>
+    <span *ngIf="!data">New Task</span>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <form [formGroup]="newTaskForm">
+        <form [formGroup]="newTaskForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="taskName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="taskDescription">
+            </mat-form-field>
+        </form>
+    </form>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelTaskCreation()">CANCEL</button>
+    <button mat-raised-button color="primary" [disabled]="newTaskForm.invalid" (click)="addNewTask()">SAVE</button>
+</div>

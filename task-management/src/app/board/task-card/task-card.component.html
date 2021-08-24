@@ -1,0 +1,28 @@
+<mat-card class="card" *ngIf="task.taskStatus == tileName">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="task-option">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editTask(task)">
+            <span>Edit</span>
+        </button>
+        <button mat-menu-item (click)="deleteTask(task)">
+            <span>Delete</span>
+        </button>
+    </mat-menu>
+    <mat-card-header>
+        <mat-card-subtitle class="task-header">{{ task.taskName }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="dropdown-container">
+        <mat-select [(ngModel)]="task.taskStatus">
+            <mat-option *ngFor="let status of taskStatus" [value]="status">
+                {{status}}
+            </mat-option>
+        </mat-select>
+        <mat-select [(ngModel)]="task.taskAuthor">
+            <mat-option *ngFor="let author of taskAuthors" [value]="author">
+                {{author}}
+            </mat-option>
+        </mat-select>
+    </div>
+</mat-card>

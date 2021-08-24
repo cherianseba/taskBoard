@@ -1,0 +1,20 @@
+<div>
+  <mat-grid-list cols="4" style="margin:8px;" gutterSize="20px">
+    <mat-grid-tile class="board-list" *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      <mat-grid-tile-header class="board-list-header" [style.background]="tile.titlecolor">
+        <span class="list-header-text">{{tile.text}}</span>
+        <button mat-icon-button matTooltip="Add new task" (click)="addOrEditTask()">
+          <mat-icon *ngIf="tile.addNewTask">add</mat-icon>
+        </button>
+        <button *ngIf="tile.text == 'Done'" mat-icon-button matTooltip="Clear all tasks" (click)="clearAllCompletedTasks()">
+          <mat-icon>clear all</mat-icon>
+        </button>
+      </mat-grid-tile-header>
+      <div class="task-card">
+        <app-task-card *ngFor="let task of taskList" [tileName]="tile.text" [task]="task"
+          (editTaskEmitter)="addOrEditTask($event)" (deleteTaskEmitter)="onDeleteTask($event)"></app-task-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

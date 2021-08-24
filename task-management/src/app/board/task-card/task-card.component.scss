@@ -1,0 +1,39 @@
+.card {
+    margin-top: 10px;
+    background-color: #f1f1f1;
+}
+.card-desc {
+    padding-left: 8px;
+    font-size: 16px;
+}
+.task-header {
+    width: 216px;
+    color: #000000;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.task-option {
+    float: right;
+    color: gray;
+    left: 25px;
+    top: -22px;
+}
+.dropdown-container {
+    width: 100%;
+    display: flex;
+}
+::ng-deep {
+    .mat-card-header-text {
+        margin: 0px !important;
+    }
+    .mat-select {
+        width: 115px !important;
+        margin-right: 15px;
+    }
+    .mat-select-value {
+        font-size: 14px;
+        color: #000000;
+    }
+}
