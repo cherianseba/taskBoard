@@ -24,6 +24,7 @@ export class BoardComponent implements OnInit {
     this.getTasks();
   }
 
+  // get all tasks
   getTasks() {
     this.taskService.getTasks().subscribe((tasks: Task[]) =>
       this.taskList = tasks,
